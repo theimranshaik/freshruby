@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" class="select-none touch-none text-[18px] sm:text-[24px] text-black font-instrument">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Ruby</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white font-instrument px-2 pt-2 pb-6 overflow-hidden">
+
+  <header class="fixed top-2 left-2 right-2 z-50 border px-4 py-2 flex justify-between items-center bg-white/80 backdrop-blur-sm border-gray-300">
+    <div class="font-semibold uppercase tracking-widest">Ruby</div>
+    <button onclick="openPopup()" class="border border-black bg-black text-white px-4 py-2 text-sm">+ Add New</button>
+  </header>
+
+  <main id="workspace" class="pt-20 pb-6 overflow-y-auto max-h-[90vh] space-y-6 text-[1rem]">
+    <div id="empty-guide" class="absolute top-1/2 text-center text-sm text-gray-500 px-6">
+      Tap the + Add New button to add new leads and manage
+    </div>
+  </main>
+
+  <div id="popup" class="hidden fixed inset-0 z-50 flex items-center justify-center blur-bg">
+    <div class="relative bg-white border border-gray-300 p-5 w-[92%] max-w-sm space-y-4">
+      <div class="flex justify-between items-center">
+        <div id="popup-title" class="text-base">Add New Lead</div>
+        <button onclick="closePopup()" class="text-sm">✕</button>
+      </div>
+      <input id="lead-name" type="text" placeholder="Name" class="w-full border border-gray-300 px-3 py-2 text-sm" />
+      <input id="lead-number" type="tel" placeholder="Phone (10 digits)" pattern="[0-9]{10}" maxlength="10" class="w-full border border-gray-300 px-3 py-2 text-sm" />
+      <div class="flex flex-wrap gap-2" id="status-buttons">
+        <button data-status="New" onclick="selectStatus(this)" class="border border-gray-300 px-4 py-2 text-xs status-btn">New</button>
+        <button data-status="Contacted" onclick="selectStatus(this)" class="border border-gray-300 px-4 py-2 text-xs status-btn">Contacted</button>
+        <button data-status="Interested" onclick="selectStatus(this)" class="border border-gray-300 px-4 py-2 text-xs status-btn">Interested</button>
+        <button data-status="Not Interested" onclick="selectStatus(this)" class="border border-gray-300 px-4 py-2 text-xs status-btn">Not Interested</button>
+        <button data-status="Joined" onclick="selectStatus(this)" class="border border-gray-300 px-4 py-2 text-xs status-btn">Joined</button>
+      </div>
+      <div class="flex justify-end pt-2">
+        <button onclick="submitLead()" class="border border-black bg-black text-white px-4 py-2 text-xs">Add Lead</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
