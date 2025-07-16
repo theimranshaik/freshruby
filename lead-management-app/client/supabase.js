@@ -1,0 +1,1 @@
+export const supabase = window.supabase.createClient('https://your-project.supabase.co', 'your-anon-key');
